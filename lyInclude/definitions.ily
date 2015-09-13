@@ -89,6 +89,6 @@ adlib = \relative c {
     }
 
 fine = {
-    \once \override Score.RehearsalMark #'extra-offset = #'(0 . -7.5)
+    \once \override Score.RehearsalMark #'extra-offset = #'(-2.75 . -8)
     s1*0 \mark \markup { \small \italic "Fine" }
     }
