@@ -17,7 +17,6 @@ possibilities with the modifications made here.
 
 ## Contribution
 Suggestions and contributions to lyInclude are always welcome and appreciated.
-Please see the [CONTRIBUTING](CONTRIBUTING.md) file for instructions.
 
 ## Documentation
 
@@ -26,9 +25,16 @@ Please see the [CONTRIBUTING](CONTRIBUTING.md) file for instructions.
 ## Community
 
 ## License
-lyInclude is licensed under the GPL3 license. See the [LICENSE](LICENSE-GPL3) file.
+lyInclude is licensed under the GPL3 license.
 
 ## Credits
-For a list of contributers, see the [AUTHORS](AUTHORS.md) file.
-[1]: https://github.com/brianclements/lyTemplates.git
-[2]: http://lilypondblog.org/2013/09/lilypond-and-lilyjazz
+
+## Changelog
+### Version 1.0.0
+2013.11.28
+
+**Include**
+
+* First version. Includes custom definitions for frequently used functions in
+  `definitions.ily` and custom markup designs for chord changes in
+  `jazzChords.ily`.
