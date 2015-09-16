@@ -18,15 +18,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                      Common Custom Formatting                       %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                  Dependencies                   %%
-%%      Lead Sheet              >=2.0.1            %%
-%%      Big Band                >=1.0.0            %%
-%%      Big Band Part           >=1.0.0            %%
-%%      Chamber Orchestra       >=2.1.0            %%
-%%      Chamber Orchestra Part  >=1.3.0            %%
-%%      Custom Multipart        >=1.2.0            %%
-%%      Custom Multipart Part   >=1.1.0            %%
-%%      Multi Movement Book     >=1.1.0            %%
 
 timeStamp = #(strftime "%Y.%m.%d-%H:%M" (localtime (current-time)))
 
