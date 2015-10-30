@@ -91,11 +91,16 @@ adlib =
                 \slashOff
             #}
         )
-
-fine = {
-    \once \override Score.RehearsalMark #'extra-offset = #'(-2.75 . -8)
-    s1*0 \mark \markup { \small \italic "Fine" }
-    }
+% Function to print a subscript "fine" that takes a number argument for \halign
+% to shift it left (positive numbers) or right (negative numbers).
+fine = 
+    #(define-music-function
+        (parser location shift)
+        (number?)
+            #{
+                s1*0-\markup { \halign #shift \small \bold \italic "Fine" }
+            #}
+        )
 
 partLineBreak = { \break }
 
