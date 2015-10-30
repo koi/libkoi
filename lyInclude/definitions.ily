@@ -75,9 +75,22 @@ lh = {
     % \once \override LaissezVibrerTie  #'extra-offset = #(cons (/ $further 2) 0)
     % #})
 
-adlib = \relative c {
-    \slashOn r4 r4 r4 r4 \slashOff
-    }
+% A function to print rhythmic (improvisation) slashes of arg1 duration, at
+% arg2 slashes per bar, times arg3 bars. This ends up looking like the time
+% signature plus a multiplier (i.e. `\adlib 4 4 2` equals 2 measures of 4/4, 
+% and `\adlib 6 8 4` is 4 measures of 6/8).
+adlib = 
+    #(define-music-function
+        (parser location time pulse bars)
+        (number? ly:duration? number?)
+            #{
+                \slashOn
+                \repeat unfold $bars {
+                    \repeat unfold $time { r$pulse }
+                    }
+                \slashOff
+            #}
+        )
 
 fine = {
     \once \override Score.RehearsalMark #'extra-offset = #'(-2.75 . -8)
