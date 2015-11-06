@@ -1,4 +1,4 @@
-% definitions.ily: custom Lilypond snippets and markup modifications
+% definitions.ily: custom Lilypond modifications and functions
 
 % Copyright (C) 2015, Brian Clements
 
@@ -16,6 +16,16 @@
 % this program.  If not, see <http://www.gnu.org/licenses/>.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                              Defaults                               %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sane defaults for variables that get set or changed outside of this file and
+% that might break things when empty.
+
+% Part/Score page/line breaks
+partLineBreak = { \break }
+partPageBreak = { \pageBreak }
+scorePageBreak = { }
+
 %%%%%                      Common Custom Formatting                       %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -75,6 +85,10 @@ lh = {
     % \once \override LaissezVibrerTie  #'extra-offset = #(cons (/ $further 2) 0)
     % #})
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                          Helper Functions                           %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % A function to print rhythmic (improvisation) slashes of arg1 duration, at
 % arg2 slashes per bar, times arg3 bars. This ends up looking like the time
 % signature plus a multiplier (i.e. `\adlib 4 4 2` equals 2 measures of 4/4, 
@@ -91,6 +105,7 @@ adlib =
                 \slashOff
             #}
         )
+
 % Function to print a subscript "fine" that takes a number argument for \halign
 % to shift it left (positive numbers) or right (negative numbers).
 fine = 
@@ -102,8 +117,3 @@ fine =
             #}
         )
 
-partLineBreak = { \break }
-
-partPageBreak = { \pageBreak }
-
-scorePageBreak = { }
