@@ -26,6 +26,11 @@ partLineBreak = { \break }
 partPageBreak = { \pageBreak }
 scorePageBreak = { }
 
+% Global Transpose
+inputKey = c
+finalKey = c
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                      Common Custom Formatting                       %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -117,3 +122,14 @@ fine =
             #}
         )
 
+% Wrapper function used as last step for transposing parts and scores. Takes
+% values of `\inputKey` and `\finalKey` directly from environment as set in
+% `settings.ily` rather then as arguments upon each invocation. This reduces
+% verbosity/complexity within files.
+globalTranspose =
+    #(define-music-function
+        (parser location music)
+        (ly:music?)
+            #{ 
+                \transpose \inputKey \finalKey { $music }
+            #})
