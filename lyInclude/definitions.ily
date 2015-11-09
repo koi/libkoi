@@ -131,3 +131,23 @@ globalTranspose =
         #{ 
             \transpose \inputKey \finalKey { $music }
         #})
+
+% Wrapper function used to switch between concert pitch and transposed parts in
+% the final score. Midi remains in concert pitch always. Change by setting the
+% value of `\scoreStyle` in the `settings.ily` file.
+setScoreStyle =
+    #(define-music-function
+        (parser location music)
+        (ly:music?)
+        (begin
+            (if (not (or
+                        (equal? scoreStyle "transposed")
+                        (equal? scoreStyle "concert")))
+                (ly:error "Incorrect value for 'scoreStyle' in settings.ily file")
+                (if (equal? scoreStyle "transposed")
+                    #{ 
+                        \removeWithTag #'concert { #music }
+                    #}
+                    #{ 
+                        \removeWithTag #'transposed { #music }
+                    #}))))
