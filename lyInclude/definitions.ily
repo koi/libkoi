@@ -102,14 +102,13 @@ adlib =
     #(define-music-function
         (parser location time pulse bars)
         (number? ly:duration? number?)
-            #{
-                \slashOn
-                \repeat unfold $bars {
-                    \repeat unfold $time { r$pulse }
-                    }
-                \slashOff
-            #}
-        )
+        #{
+            \slashOn
+            \repeat unfold $bars {
+                \repeat unfold $time { r$pulse }
+                }
+            \slashOff
+        #})
 
 % Function to print a subscript "fine" that takes a number argument for \halign
 % to shift it left (positive numbers) or right (negative numbers).
@@ -117,10 +116,9 @@ fine =
     #(define-music-function
         (parser location shift)
         (number?)
-            #{
-                s1*0-\markup { \halign #shift \small \bold \italic "Fine" }
-            #}
-        )
+        #{
+            s1*0-\markup { \halign #shift \small \bold \italic "Fine" }
+        #})
 
 % Wrapper function used as last step for transposing parts and scores. Takes
 % values of `\inputKey` and `\finalKey` directly from environment as set in
@@ -130,6 +128,6 @@ globalTranspose =
     #(define-music-function
         (parser location music)
         (ly:music?)
-            #{ 
-                \transpose \inputKey \finalKey { $music }
-            #})
+        #{ 
+            \transpose \inputKey \finalKey { $music }
+        #})
