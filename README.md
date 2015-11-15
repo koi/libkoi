@@ -1,4 +1,4 @@
-# lyInclude
+# libkoi
 
 Custom LilyPond code snippets and markup modifications for lilypond projects.
 Can be used directly with slight modification (the `\include` settings), but is
@@ -27,7 +27,7 @@ the modifications made here.
 ## Install
 
 ## Contribution
-Suggestions and contributions to lyInclude are always welcome and appreciated.
+Suggestions and contributions to are always welcome and appreciated.
 
 ## Documentation
 
@@ -36,7 +36,7 @@ Suggestions and contributions to lyInclude are always welcome and appreciated.
 ## Community
 
 ## License
-lyInclude is licensed under the GPL3 license.
+libkoi is licensed under the GPL3 license.
 
 ## Credits
 
