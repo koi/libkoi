@@ -139,15 +139,14 @@ setScoreStyle =
     #(define-music-function
         (parser location music)
         (ly:music?)
-        (begin
-            (if (not (or
-                        (equal? scoreStyle "transposed")
-                        (equal? scoreStyle "concert")))
-                (ly:error "Incorrect value for 'scoreStyle' in settings.ily file")
-                (if (equal? scoreStyle "transposed")
-                    #{ 
-                        \removeWithTag #'concert { #music }
-                    #}
-                    #{ 
-                        \removeWithTag #'transposed { #music }
-                    #}))))
+        (if (not (or
+                    (equal? scoreStyle "transposed")
+                    (equal? scoreStyle "concert")))
+            (ly:error "Incorrect value for 'scoreStyle' in settings.ily file")
+            (if (equal? scoreStyle "transposed")
+                #{ 
+                    \removeWithTag #'concert { #music }
+                #}
+                #{ 
+                    \removeWithTag #'transposed { #music }
+                #})))
